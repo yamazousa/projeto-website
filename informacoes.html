@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informações - Stranger Things</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --stranger-red: #e50914;
+      --stranger-blue: #0c1a3a;
+      --stranger-light-blue: #1a3a7a;
+      --stranger-purple: #6b0f6b;
+      --stranger-neon: #00ffff;
+      --stranger-dark: #0a0a0a;
+    }
+    
+    body {
+      background-color: var(--stranger-dark);
+      color: white;
+      font-family: 'Special Elite', cursive;
+      overflow-x: hidden;
+      position: relative;
+      padding-top: 80px;
+    }
+    
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(107, 15, 107, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(229, 9, 20, 0.1) 0%, transparent 50%);
+      z-index: -1;
+    }
+    
+    /* Navbar personalizada */
+    .navbar {
+      background-color: rgba(12, 26, 58, 0.95) !important;
+      border-bottom: 2px solid var(--stranger-red);
+      box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
+      font-family: 'Creepster', cursive;
+      letter-spacing: 1px;
+    }
+    
+    .navbar-brand {
+      font-family: 'Bungee Inline', cursive;
+      color: var(--stranger-red) !important;
+      font-size: 1.8rem;
+      text-shadow: 0 0 10px rgba(229, 9, 20, 0.7);
+      animation: flicker 3s infinite alternate;
+    }
+    
+    .nav-link {
+      color: white !important;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--stranger-neon) !important;
+      text-shadow: 0 0 8px var(--stranger-neon);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--stranger-neon);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    /* Títulos */
+    .page-title {
+      font-family: 'Bungee Inline', cursive;
+      color: var(--stranger-red);
+      text-align: center;
+      margin: 30px 0;
+      font-size: 3rem;
+      text-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    
+    .season-title {
+      font-family: 'Creepster', cursive;
+      color: var(--stranger-neon);
+      border-left: 4px solid var(--stranger-red);
+      padding-left: 15px;
+      margin-top: 40px;
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    }
+    
+    /* Cards de temporada */
+    .season-card {
+      background: rgba(12, 26, 58, 0.7);
+      border: 1px solid var(--stranger-purple);
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .season-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--stranger-neon);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .season-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(107, 15, 107, 0.5);
+      border-color: var(--stranger-neon);
+    }
+    
+    .season-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .season-number {
+      font-family: 'Creepster', cursive;
+      color: var(--stranger-red);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 8px rgba(229, 9, 20, 0.5);
+    }
+    
+    .season-year {
+      color: var(--stranger-neon);
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+    
+    .season-synopsis {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .season-highlights {
+      background: rgba(10, 10, 10, 0.5);
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 3px solid var(--stranger-purple);
+    }
+    
+    .season-highlights h4 {
+      color: var(--stranger-neon);
+      font-family: 'Creepster', cursive;
+      margin-bottom: 10px;
+    }
+    
+    .season-highlights ul {
+      padding-left: 20px;
+    }
+    
+    .season-highlights li {
+      margin-bottom: 8px;
+    }
+    
+    /* Botão voltar */
+    .btn-back {
+      background: var(--stranger-blue);
+      color: white;
+      border: 1px solid var(--stranger-red);
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 30px 0;
+      transition: all 0.3s ease;
+      font-family: 'Creepster', cursive;
+      letter-spacing: 1px;
+    }
+    
+    .btn-back:hover {
+      background: var(--stranger-red);
+      color: white;
+      box-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
+      transform: translateY(-3px);
+    }
+    
+    /* Efeito de partículas */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    
+    /* Rodapé */
+    footer {
+      background-color: var(--stranger-blue);
+      border-top: 2px solid var(--stranger-red);
+      padding: 30px 0;
+      margin-top: 50px;
+      box-shadow: 0 -5px 15px rgba(229, 9, 20, 0.3);
+    }
+    
+    footer p {
+      margin-bottom: 5px;
+      color: #aaa;
+    }
+    
+    /* Animações */
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 0 0 10px var(--stranger-red);
+      }
+      20%, 24%, 55% {
+        text-shadow: none;
+      }
+    }
+    
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px var(--stranger-red), 0 0 20px var(--stranger-red);
+      }
+      to {
+        text-shadow: 0 0 15px var(--stranger-red), 0 0 30px var(--stranger-red), 0 0 40px var(--stranger-red);
+      }
+    }
+    
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2.2rem;
+      }
+      
+      .season-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Efeito de partículas -->
+  <div id="particles-js"></div>
+
+  <!-- Menu de Navegação -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">STRANGER THINGS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="informacoes.html">Informações</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeria.html">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="midia.html">Mídia / Mapa</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo Principal -->
+  <div class="container">
+    <h1 class="page-title">INFORMAÇÕES DAS TEMPORADAS</h1>
+    
+    <!-- Temporada 1 -->
+    <div class="season-card">
+      <h2 class="season-number">TEMPORADA 1</h2>
+      <div class="season-year">2016 • 8 Episódios</div>
+      <div class="season-synopsis">
+        <p>Em 1983, na pequena cidade de Hawkins, Indiana, o garoto Will Byers desaparece misteriosamente. Enquanto seus amigos, família e a polícia local procuram respostas, eles se deparam com um experimento secreto do governo, forças sobrenaturais e uma garota muito especial com poderes telecinéticos.</p>
+      </div>
+      <div class="season-highlights">
+        <h4>DESTAQUES DA TEMPORADA</h4>
+        <ul>
+          <li>Introdução dos personagens principais: Mike, Dustin, Lucas, Eleven e Will</li>
+          <li>Descoberta do Mundo Invertido</li>
+          <li>O Laboratório de Hawkins e seus experimentos secretos</li>
+          <li>A primeira aparição do Demogorgon</li>
+          <li>O desaparecimento de Will Byers e sua comunicação através das luzes</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Temporada 2 -->
+    <div class="season-card">
+      <h2 class="season-number">TEMPORADA 2</h2>
+      <div class="season-year">2017 • 9 Episódios</div>
+      <div class="season-synopsis">
+        <p>Um ano após os eventos da primeira temporada, os cidadãos de Hawkins tentam seguir em frente - apesar dos medos e do trauma que ainda os assombram. Will Byers voltou, mas algo não está certo. Ele começa a ter visões do Mundo Invertido, e uma nova ameaça muito maior se aproxima.</p>
+      </div>
+      <div class="season-highlights">
+        <h4>DESTAQUES DA TEMPORADA</h4>
+        <ul>
+          <li>Will Byers retorna, mas continua conectado ao Mundo Invertido</li>
+          <li>A chegada de Max Mayfield e seu meio-irmão Billy</li>
+          <li>A descoberta da "Sombra" (Mind Flayer)</li>
+          <li>O passado de Eleven e sua jornada para encontrar sua mãe</li>
+          <li>A batalha no Laboratório de Hawkins para fechar o portal</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Temporada 3 -->
+    <div class="season-card">
+      <h2 class="season-number">TEMPORADA 3</h2>
+      <div class="season-year">2019 • 8 Episódios</div>
+      <div class="season-synopsis">
+        <p>É o verão de 1985 em Hawkins, e o novo shopping Starcourt Mall se tornou o centro da vida na cidade. Enquanto os adolescentes lidam com romances e amizades em mudança, uma nova ameaça surge quando o Mind Flayer retorna com um plano para se vingar. Dessa vez, ele possui os corpos dos habitantes da cidade, criando um exército de zumbis.</p>
+      </div>
+      <div class="season-highlights">
+        <h4>DESTAQUES DA TEMPORADA</h4>
+        <ul>
+          <li>O novo shopping Starcourt Mall como cenário central</li>
+          <li>Os russos tentando abrir outro portal para o Mundo Invertido</li>
+          <li>O Mind Flayer retorna possuindo os corpos dos habitantes</li>
+          <li>O desenvolvimento dos relacionamentos entre os personagens</li>
+          <li>A aparente morte de Hopper e a mudança da família Byers</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Temporada 4 -->
+    <div class="season-card">
+      <h2 class="season-number">TEMPORADA 4</h2>
+      <div class="season-year">2022 • 9 Episódios (Dividida em duas partes)</div>
+      <div class="season-synopsis">
+        <p>Seis meses após a Batalha de Starcourt, a cidade de Hawkins tenta se recuperar, mas os eventos traumáticos deixaram todos separados e lutando. Enquanto isso, uma nova e aterrorizante ameaça sobrenatural surge - um monstro conectado ao passado de Eleven e aos experimentos do Laboratório Hawkins. Esta ameaça finalmente revela o que é o Mundo Invertido e por que ele existe.</p>
+      </div>
+      <div class="season-highlights">
+        <h4>DESTAQUES DA TEMPORADA</h4>
+        <ul>
+          <li>A introdução de Vecna, o novo vilão principal</li>
+          <li>Revelações sobre a origem do Mundo Invertido</li>
+          <li>O passado de Eleven no Laboratório Hawkins</li>
+          <li>A jornada de Hopper na Rússia</li>
+          <li>A batalha final na Mansão Creel</li>
+          <li>O retorno de personagens como Eddie Munson</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Próxima Temporada -->
+    <div class="season-card">
+      <h2 class="season-number">TEMPORADA 5</h2>
+      <div class="season-year">PREVISÃO: 2025 • Última Temporada</div>
+      <div class="season-synopsis">
+        <p>A quinta e última temporada de Stranger Things ainda está em produção. Sabe-se que será o capítulo final da história, com os Duffer Brothers prometendo um desfecho épico que responderá a todas as perguntas restantes sobre o Mundo Invertido e seus personagens. A temporada deve focar no fechamento definitivo do portal entre os mundos e no destino final de Hawkins e seus habitantes.</p>
+      </div>
+      <div class="season-highlights">
+        <h4>O QUE ESPERAR</h4>
+        <ul>
+          <li>O desfecho final da batalha contra Vecna</li>
+          <li>Respostas sobre a origem e natureza do Mundo Invertido</li>
+          <li>O destino de todos os personagens principais</li>
+          <li>Possíveis sacrifícios para salvar Hawkins</li>
+          <li>Um final emocionante que encerrará a saga</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Botão Voltar -->
+    <div class="text-center">
+      <a href="index.html" class="btn-back">VOLTAR PARA HOME</a>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="text-center">
+    <div class="container">
+      <p>Site desenvolvido em 2025 para Atividade Final de DSA1</p>
+      <p>Turma: INFIGT</p>
+      <p>Integrantes: Guilherme Felix (nº13), Leticia Coimbra (Nº17), Mirella Yamaoka (Nº24) e Tarsila Miyazaki (Nº35)</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Inicializar partículas
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#00ffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#6b0f6b",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out",
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        }
+      }
+    });
+  </script>
+</body>
+</html>

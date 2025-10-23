@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stranger Things DSA1 - Mundo Invertido</title>
+  <!-- Bootstrap 5.3.0 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Efeito de partículas -->
+  <div id="particles-js"></div>
+
+  <!-- Menu de Navegação -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-text">STRANGER THINGS</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="informacoes.html">Informações</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeria.html">Galeria</a></li>
+          <li class="nav-item"><a class="nav-link" href="midia.html">Mídia / Mapa</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section d-flex align-items-center">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <h1 class="hero-title glitch" data-text="Bem-vindo ao Mundo Invertido">Bem-vindo ao Mundo Invertido</h1>
+          <p class="hero-subtitle">Explore os mistérios de Hawkins e descubra segredos que vão além da realidade</p>
+          <a href="#characters" class="btn btn-primary btn-lg mt-4">Explorar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Personagens -->
+  <section id="characters" class="characters-section py-5">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col text-center">
+          <h2 class="section-title">Personagens Principais</h2>
+          <p class="section-subtitle">Conheça os heróis de Hawkins</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="character-card">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Eleven" class="card-img">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Eleven</h3>
+              <p class="card-text">Poderes telecinéticos e conexão com o Mundo Invertido.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="character-card">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mike Wheeler" class="card-img">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Mike Wheeler</h3>
+              <p class="card-text">Líder do grupo de amigos e interesse amoroso de Eleven.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="character-card">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dustin Henderson" class="card-img">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Dustin Henderson</h3>
+              <p class="card-text">O cérebro do grupo com um senso de humor único.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="character-card">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lucas Sinclair" class="card-img">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Lucas Sinclair</h3>
+              <p class="card-text">Cético e prático, sempre preparado para o perigo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Temporadas -->
+  <section class="seasons-section py-5">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col text-center">
+          <h2 class="section-title">Temporadas</h2>
+          <p class="section-subtitle">A jornada através das dimensões</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="season-card">
+            <div class="season-number">1</div>
+            <div class="card-body">
+              <h3 class="card-title">Temporada 1</h3>
+              <p class="card-text">O desaparecimento de Will Byers e a chegada de Eleven.</p>
+              <div class="season-year">2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="season-card">
+            <div class="season-number">2</div>
+            <div class="card-body">
+              <h3 class="card-title">Temporada 2</h3>
+              <p class="card-text">Will retorna, mas algo do Mundo Invertido veio com ele.</p>
+              <div class="season-year">2017</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="season-card">
+            <div class="season-number">3</div>
+            <div class="card-body">
+              <h3 class="card-title">Temporada 3</h3>
+              <p class="card-text">Um novo mal surge no shopping de Hawkins.</p>
+              <div class="season-year">2019</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="footer py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-2">Site desenvolvido em 2025 para Atividade Final de DSA1</p>
+          <p class="mb-0">Turma: INFIGT</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Integrantes: Guilherme Felix (nº13), Leticia Coimbra (Nº17), Mirella Yamaoka (Nº24) e Tarsila Miyazaki (Nº35)</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Inicializar partículas
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#00ffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#6b0f6b",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out",
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        }
+      }
+    });
+  </script>
+</body>
+</html>
